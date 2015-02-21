@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :get_users, only: [:new, :edit]
 
   # GET /contacts
   # GET /contacts.json
@@ -70,5 +71,9 @@ class ContactsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
       params.require(:contact).permit(:name, :lastname, :phone, :email, :description, :birthdate, :user_id)
+    end
+    
+    def get_users
+      @users = User.order("lastname").map { |user| [user.name + ' ' + user.lastname, user.id] }
     end
 end
