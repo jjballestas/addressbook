@@ -1,4 +1,6 @@
-<h1>Listing contacts</h1>
+<h2>Listing contacts</h2>
+
+<%= link_to 'New Contact', new_contact_path, class: 'button' %>
 
 <table>
   <thead>
@@ -31,7 +33,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Contact', new_contact_path %>
