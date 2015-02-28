@@ -11,19 +11,39 @@ class ContactsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:contacts)
   end
 
-  test "should get new" do
+  test "deberia ser redirigido a la pagina de login si no esta autenticado" do
+    get :new
+    
+    assert_response :redirect
+    assert_redirected_to new_user_session_path
+  end
+  
+  test "should get new when user is logged in" do
+    sign_in users(:one)
+    
     get :new
     assert_response :success
   end
 
+  test "should not create contact without login" do
+    assert_no_difference('Contact.count') do
+      post :create, contact: { birthdate: @contact.birthdate, description: @contact.description, email: @contact.email, lastname: @contact.lastname, name: @contact.name, phone: @contact.phone, user_id: @contact.user_id }
+    end
+
+    assert_response :redirect
+    assert_redirected_to new_user_session_path
+  end
+  
   test "should create contact" do
+    sign_in users(:one)
+    
     assert_difference('Contact.count') do
       post :create, contact: { birthdate: @contact.birthdate, description: @contact.description, email: @contact.email, lastname: @contact.lastname, name: @contact.name, phone: @contact.phone, user_id: @contact.user_id }
     end
 
     assert_redirected_to contact_path(assigns(:contact))
   end
-
+  
   test "should show contact" do
     get :show, id: @contact
     assert_response :success

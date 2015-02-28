@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  lastname: MyString
+  name: Pedro
+  lastname: Perez
+  email: pedro.perez@uninorte.edu.co
 
 two:
-  name: MyString
-  lastname: MyString
+  name: Gustavo
+  lastname: Morales
+  email: gustavo.morales@uninorte.edu.co
