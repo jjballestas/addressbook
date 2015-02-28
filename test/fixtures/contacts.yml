@@ -7,7 +7,7 @@ one:
   email: MyString
   description: MyText
   birthdate: 2015-02-21
-  user_id: 1
+  user: :one
 
 two:
   name: MyString
@@ -16,4 +16,4 @@ two:
   email: MyString
   description: MyText
   birthdate: 2015-02-21
-  user_id: 1
+  user: :two
