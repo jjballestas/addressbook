@@ -22,8 +22,8 @@
          <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
         <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
+      
       <section class="top-bar-section">
-        
         <ul class="right">
           <% if user_signed_in? %>
           <li class="active">
@@ -41,13 +41,9 @@
           </li>
           <% end %>
         </ul>
-        
       </section>
     </nav>
-    
-    <p class="notice"><%= flash.notice %></p>
-    <p class="alert"><%= flash.alert %></p>
-    
+
     <div class="row">
       <div class="columns large-12">
         <%= yield %>
